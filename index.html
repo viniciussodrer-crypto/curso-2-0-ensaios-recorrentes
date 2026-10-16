@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ensaios Recorrentes 2.0 — Atraia novos clientes em qualquer nicho da fotografia</title>
+  <meta name="description" content="Aprenda a atrair novos clientes em qualquer nicho da fotografia. Construa uma agenda movimentada de ensaios com o método Ensaios Recorrentes 2.0, de Vinícius Sodré.">
+  <meta name="theme-color" content="#0a0a0a">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Ensaios Recorrentes 2.0 — Atraia novos clientes em qualquer nicho da fotografia">
+  <meta property="og:description" content="O método para fotógrafos gerarem pedidos de orçamento todo dia e construírem uma agenda recorrente de ensaios, em qualquer nicho.">
+  <meta property="og:image" content="imagens/capa-curso.webp">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --fundo: #0b0b0c;
+      --fundo-2: #121214;
+      --card: #161618;
+      --linha: #2a2a2f;
+      --texto: #f5f5f4;
+      --suave: #b4b4bb;
+      --apagado: #85858d;
+      --verde: #22c55e;
+      --verde-forte: #16a34a;
+      --verde-claro: #4ade80;
+      --verde-fundo: rgba(34, 197, 94, 0.12);
+      --raio: 18px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+      background: var(--fundo); color: var(--texto);
+      line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    h1, h2, h3 { line-height: 1.12; font-weight: 800; }
+
+    .container { width: 100%; max-width: 1080px; margin: 0 auto; padding: 0 20px; }
+    .estreito { max-width: 760px; }
+    section { padding: 96px 0; scroll-margin-top: 0; }
+    .alt { background: var(--fundo-2); }
+    .verde { color: var(--verde); }
+
+    /* Etiqueta pequena acima do título */
+    .eyebrow { display: block; font-size: 12px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--verde); margin-bottom: 14px; }
+    .titulo { font-size: clamp(28px, 4.4vw, 44px); letter-spacing: -0.03em; margin-bottom: 18px; }
+    .lead { font-size: clamp(16px, 2vw, 18px); color: var(--suave); max-width: 680px; }
+    .lead + .lead { margin-top: 12px; }
+    .topo-secao { margin-bottom: 44px; }
+
+    /* Botão principal */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 12px;
+      background: var(--verde); color: #04140a;
+      font-weight: 800; font-size: 15px; letter-spacing: .02em; text-transform: uppercase; text-align: center;
+      padding: 19px 28px; border-radius: 12px;
+      box-shadow: 0 10px 34px rgba(34, 197, 94, .28);
+      transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+    }
+    .btn::after { content: "→"; font-size: 18px; line-height: 1; transition: transform .2s; }
+    .btn:hover { background: var(--verde-claro); transform: translateY(-2px); box-shadow: 0 16px 40px rgba(34, 197, 94, .4); }
+    .btn:hover::after { transform: translateX(4px); }
+    .btn.largo { width: 100%; max-width: 520px; }
+    .cta { margin-top: 40px; }
+
+    .checks { list-style: none; display: grid; gap: 10px; margin-top: 24px; }
+    .checks li { position: relative; padding-left: 28px; color: var(--suave); font-size: 15px; }
+    .checks li::before { content: "✓"; position: absolute; left: 0; top: 0; color: var(--verde); font-weight: 800; }
+
+    .card { background: var(--card); border: 1px solid var(--linha); border-radius: var(--raio); padding: 28px; }
+
+    /* Imagens */
+    .imagem { position: relative; border-radius: var(--raio); overflow: hidden; background: var(--card); border: 1px solid var(--linha); }
+    .imagem img { width: 100%; height: auto; }
+    .imagem.vazio img { display: none; }
+    .imagem.vazio { aspect-ratio: 4 / 5; }
+    .imagem.vazio::after { content: attr(data-rotulo); position: absolute; inset: 0; display: grid; place-items: center; text-align: center; padding: 20px; color: var(--apagado); font-size: 14px; }
+
+    /* ---------- Cabeçalho ---------- */
+    header.topo { position: absolute; inset: 0 0 auto 0; z-index: 20; }
+    header.topo .container { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-top: 20px; padding-bottom: 20px; }
+    .logo { display: inline-flex; align-items: center; gap: 9px; font-weight: 800; font-size: 15px; letter-spacing: -.01em; }
+    .logo svg { width: 24px; height: 24px; color: var(--verde); }
+    .btn-contorno { border: 1px solid var(--linha); color: var(--suave); font-size: 14px; font-weight: 600; padding: 8px 16px; border-radius: 8px; transition: border-color .2s, color .2s; }
+    .btn-contorno:hover { border-color: var(--verde); color: var(--texto); }
+
+    /* ---------- Hero ---------- */
+    .hero {
+      position: relative; overflow: hidden; padding: 140px 0 96px; text-align: center;
+      background: radial-gradient(640px 420px at 50% 0%, rgba(34, 197, 94, .22), transparent 70%);
+    }
+    .hero .selo { display: inline-flex; align-items: center; gap: 8px; border: 1px solid rgba(34,197,94,.45); color: var(--verde-claro); border-radius: 999px; padding: 6px 14px; font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 24px; }
+    .hero h1 { font-size: clamp(34px, 6vw, 62px); letter-spacing: -0.04em; max-width: 880px; margin: 0 auto 36px; }
+    .hero h1 .ponto { color: var(--verde); }
+    .vitrine {
+      max-width: 620px; margin: 0 auto 40px; padding: 14px; border-radius: 26px;
+      background: linear-gradient(160deg, rgba(34,197,94,.22), rgba(255,255,255,.03) 45%, rgba(34,197,94,.08));
+      border: 1px solid rgba(34,197,94,.3);
+      box-shadow: 0 40px 100px rgba(0,0,0,.55);
+    }
+    .vitrine img { border-radius: 16px; width: 100%; }
+    .hero .texto { font-size: clamp(17px, 2.2vw, 20px); max-width: 640px; margin: 0 auto 14px; }
+    .hero .texto-2 { color: var(--suave); max-width: 600px; margin: 0 auto 32px; }
+    .hero .checks { grid-template-columns: repeat(2, auto); justify-content: center; column-gap: 32px; text-align: left; }
+
+    /* ---------- Vídeo ---------- */
+    .player {
+      position: relative; aspect-ratio: 16 / 9; border-radius: var(--raio); overflow: hidden;
+      border: 1px solid rgba(34,197,94,.4); background: radial-gradient(circle at center, #14261a, var(--card));
+      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px;
+    }
+    .player iframe, .player video { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+    .player .aula { position: absolute; top: 16px; left: 16px; font-size: 12px; font-weight: 700; letter-spacing: .12em; color: var(--verde); border: 1px solid rgba(34,197,94,.45); border-radius: 999px; padding: 5px 12px; }
+    .play { width: 78px; height: 78px; border-radius: 50%; background: var(--verde); display: grid; place-items: center; box-shadow: 0 0 0 12px rgba(34,197,94,.15); }
+    .play::after { content: ""; border-left: 24px solid #04140a; border-top: 15px solid transparent; border-bottom: 15px solid transparent; margin-left: 6px; }
+    .player p { font-weight: 700; font-size: clamp(17px, 2.6vw, 22px); }
+
+    .nichos-arte { max-width: 520px; margin: 56px auto 0; border-radius: var(--raio); overflow: hidden; border: 1px solid var(--linha); aspect-ratio: 864 / 1612; background: #f6f7f4; }
+    .nichos-arte img { width: 100%; height: auto; /* corta a faixa verde e o rodapé da arte */ }
+
+    .letreiro {
+      margin-top: 64px; overflow: hidden; padding: 18px 0; border-top: 1px solid var(--linha); border-bottom: 1px solid var(--linha);
+      -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+              mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+    }
+    .letreiro-faixa { display: flex; width: max-content; animation: rolar 40s linear infinite; }
+    .letreiro span { font-weight: 600; font-size: 13px; letter-spacing: .22em; color: var(--suave); white-space: nowrap; padding-right: 22px; }
+    .letreiro span i { font-style: normal; color: var(--verde); padding-left: 22px; }
+    @keyframes rolar { to { transform: translateX(-50%); } }
+
+    /* ---------- Método ---------- */
+    .metodo-grade { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; margin-bottom: 48px; }
+    .ciclo { background: #fff; border-radius: var(--raio); padding: 12px; }
+    .etapas { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .num { font-size: 44px; font-weight: 800; color: var(--verde); line-height: 1; margin-bottom: 18px; letter-spacing: -0.03em; }
+    .etapas h3, .cards-3 h3 { font-size: 20px; margin-bottom: 8px; }
+    .etapas p, .cards-3 p { color: var(--suave); font-size: 15px; }
+
+    /* ---------- Quebra de padrão ---------- */
+    .destaque { border-left: 3px solid var(--verde); padding: 6px 0 6px 22px; font-size: clamp(17px, 2.2vw, 20px); margin-top: 32px; max-width: 680px; }
+
+    /* ---------- Prova real ---------- */
+    .prints { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; align-items: start; }
+    .print { padding: 16px; }
+    .print .etapa { font-size: 12px; font-weight: 700; letter-spacing: .14em; color: var(--verde); }
+    .print p { color: var(--suave); font-size: 14px; margin: 6px 0 14px; min-height: 3.2em; }
+    .print .imagem { border-radius: 12px; }
+    .fecho { font-size: clamp(18px, 2.4vw, 22px); font-weight: 700; margin-top: 40px; max-width: 640px; }
+
+    /* ---------- Construir ---------- */
+    .duas-colunas { display: grid; grid-template-columns: 1.1fr .9fr; gap: 56px; align-items: center; }
+    .construir h2 + h2 { color: var(--verde); }
+    .agenda-recorte { aspect-ratio: 738 / 1190; background: #fafafc; }
+    .agenda-recorte img { margin-top: -23.04%; /* 170px de 738px: tira a barra de status */ }
+    figcaption { margin-top: 12px; font-size: 13px; color: var(--apagado); text-align: center; }
+
+    /* ---------- Nichos ---------- */
+    .pilulas { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+    .pilulas span { border: 1px solid var(--linha); background: var(--card); color: var(--suave); border-radius: 999px; padding: 9px 18px; font-size: 14px; font-weight: 600; transition: all .2s; }
+    .pilulas span:first-child, .pilulas span:hover { background: var(--verde); border-color: var(--verde); color: #04140a; }
+
+    /* ---------- Carreira ---------- */
+    .cards-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .cards-2 .card h3 { font-size: 22px; margin-bottom: 10px; }
+    .cards-2 .card p { color: var(--suave); }
+    .icone { width: 46px; height: 46px; border-radius: 12px; background: var(--verde-fundo); color: var(--verde); display: grid; place-items: center; margin-bottom: 18px; }
+    .icone svg { width: 24px; height: 24px; }
+
+    /* ---------- Pagamentos ---------- */
+    .prints-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; max-width: 720px; align-items: start; }
+
+    /* ---------- Por que funciona ---------- */
+    .cards-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+
+    /* ---------- Autor ---------- */
+    .autor-grade { display: grid; grid-template-columns: .8fr 1.2fr; gap: 56px; align-items: center; }
+    .autor .imagem { aspect-ratio: 4 / 5; }
+    .autor .imagem img { height: 100%; object-fit: cover; object-position: center 30%; }
+    .autor h2 { font-size: clamp(30px, 4.2vw, 44px); letter-spacing: -0.03em; }
+    .autor .cargo { color: var(--verde); font-weight: 600; margin: 6px 0 20px; }
+    .autor .bio { color: var(--suave); font-size: 17px; }
+
+    /* ---------- Bônus ---------- */
+    .bonus { display: grid; grid-template-columns: .8fr 1.2fr; gap: 40px; align-items: center; padding: 32px; }
+    .bonus + .bonus { margin-top: 16px; }
+    .bonus h3 { font-size: clamp(24px, 3.2vw, 32px); letter-spacing: -0.02em; margin-bottom: 12px; }
+    .bonus .lead { font-size: 16px; }
+    .pack-recorte { overflow: hidden; border-radius: 14px; aspect-ratio: 862 / 1015; background: #050805; }
+    .pack-recorte img { width: 100%; height: auto; margin-top: -19.72%; /* tira o selo "BÔNUS" do topo */ }
+    .ebook { max-width: 300px; margin: 0 auto; border-radius: 14px; overflow: hidden; box-shadow: 0 30px 60px rgba(0,0,0,.5); }
+
+    /* ---------- FAQ ---------- */
+    .faq details { border-bottom: 1px solid var(--linha); }
+    .faq details:first-child { border-top: 1px solid var(--linha); }
+    .faq summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 22px 0; font-weight: 600; font-size: 17px; }
+    .faq summary::-webkit-details-marker { display: none; }
+    .faq summary::after { content: "+"; color: var(--verde); font-size: 24px; font-weight: 500; line-height: 1; transition: transform .25s; flex-shrink: 0; }
+    .faq details[open] summary::after { transform: rotate(45deg); }
+    .faq details p { color: var(--suave); padding: 0 0 22px; max-width: 680px; }
+
+    /* ---------- Oferta (único lugar com preço) ---------- */
+    .oferta {
+      position: relative; overflow: hidden; scroll-margin-top: 0;
+      background: radial-gradient(700px 460px at 50% 0%, rgba(34, 197, 94, .18), transparent 70%);
+    }
+    .oferta .chamada { text-align: center; margin-bottom: 44px; }
+    .oferta .chamada .titulo { max-width: 760px; margin-left: auto; margin-right: auto; }
+    .oferta .chamada .lead { margin: 0 auto; }
+    .oferta-card {
+      max-width: 620px; margin: 0 auto; border-radius: 26px; padding: 40px 36px;
+      background: linear-gradient(170deg, rgba(34,197,94,.14), var(--card) 40%);
+      border: 1px solid rgba(34,197,94,.4);
+      box-shadow: 0 40px 100px rgba(0,0,0,.5);
+    }
+    .oferta-card h3 { font-size: clamp(24px, 3.4vw, 32px); letter-spacing: -0.02em; margin-bottom: 12px; }
+    .oferta-card > .lead { font-size: 16px; }
+    .preco { margin: 28px 0 24px; }
+    .preco .valor { display: flex; align-items: baseline; flex-wrap: wrap; gap: 10px; font-size: clamp(44px, 8vw, 60px); font-weight: 800; letter-spacing: -0.03em; line-height: 1; }
+    .preco .valor small { font-size: 13px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--verde); }
+    .preco .parcelas { margin-top: 10px; color: var(--suave); font-size: 17px; }
+    .preco .parcelas b { color: var(--texto); }
+    .oferta-card .btn { width: 100%; }
+    .seguro { text-align: center; color: var(--apagado); font-size: 13px; margin-top: 12px; }
+    .incluso { margin-top: 32px; border-top: 1px solid var(--linha); }
+    .incluso div { padding: 16px 0; border-bottom: 1px solid var(--linha); }
+    .incluso dt { font-weight: 700; font-size: 15px; }
+    .incluso dd { color: var(--suave); font-size: 14px; }
+    .garantias { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 24px; }
+    .garantias span { text-align: center; font-size: 12px; font-weight: 600; color: var(--suave); background: rgba(255,255,255,.03); border: 1px solid var(--linha); border-radius: 10px; padding: 12px 6px; }
+
+    /* ---------- Rodapé ---------- */
+    footer { border-top: 1px solid var(--linha); padding: 56px 0 120px; }
+    .rodape-grade { display: grid; grid-template-columns: 1.6fr 1fr 1fr; gap: 32px; margin-bottom: 36px; }
+    footer .desc { color: var(--apagado); font-size: 14px; margin-top: 14px; max-width: 360px; }
+    footer h4 { font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--verde); margin-bottom: 14px; }
+    footer ul { list-style: none; display: grid; gap: 8px; }
+    footer ul a { color: var(--suave); font-size: 14px; word-break: break-word; }
+    footer ul a:hover { color: var(--texto); }
+    .copy { color: var(--apagado); font-size: 12px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
+
+    /* ---------- Barra fixa inferior ---------- */
+    .barra-fixa {
+      position: fixed; left: 0; right: 0; bottom: 0; z-index: 40;
+      background: rgba(11, 11, 12, .92); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      border-top: 1px solid var(--linha);
+      transform: translateY(110%); transition: transform .3s ease;
+    }
+    .barra-fixa.ativa { transform: none; }
+    .barra-fixa .container { display: flex; align-items: center; justify-content: space-between; gap: 14px; padding-top: 12px; padding-bottom: 12px; }
+    .barra-fixa .info { line-height: 1.25; }
+    .barra-fixa .info b { display: block; font-size: 14px; }
+    .barra-fixa .info span { font-size: 12px; color: var(--apagado); }
+    .barra-fixa .btn { padding: 13px 20px; font-size: 13px; box-shadow: none; }
+
+    /* ---------- Animação de entrada ---------- */
+    .revelar { opacity: 0; transform: translateY(22px); transition: opacity .7s ease, transform .7s ease; }
+    .revelar.visivel { opacity: 1; transform: none; }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation: none !important; transition: none !important; }
+      .revelar { opacity: 1; transform: none; }
+    }
+
+    /* ---------- Responsivo ---------- */
+    @media (max-width: 960px) {
+      .etapas, .prints { grid-template-columns: repeat(2, 1fr); }
+      .cards-3 { grid-template-columns: 1fr; }
+      .metodo-grade, .duas-colunas, .autor-grade, .bonus { grid-template-columns: 1fr; gap: 36px; }
+      .ciclo { max-width: 480px; }
+      .construir figure { max-width: 440px; }
+      .autor .imagem { max-width: 420px; }
+      .pack-recorte { max-width: 420px; }
+      .rodape-grade { grid-template-columns: 1fr 1fr; }
+      .rodape-grade > div:first-child { grid-column: 1 / -1; }
+    }
+    @media (max-width: 640px) {
+      section { padding: 72px 0; }
+      .container { padding: 0 16px; }
+      .hero { padding: 108px 0 72px; }
+      .hero .checks { grid-template-columns: 1fr 1fr; column-gap: 16px; }
+      .vitrine { padding: 10px; border-radius: 20px; }
+      .btn { width: 100%; padding: 18px 20px; }
+      .topo .btn-contorno { display: none; }
+      .etapas, .cards-2, .prints-2 { grid-template-columns: 1fr; }
+      .prints { grid-template-columns: 1fr; max-width: 400px; }
+      .print p { min-height: 0; }
+      .card { padding: 24px 20px; }
+      .bonus { padding: 24px 20px; }
+      .oferta-card { padding: 30px 20px; border-radius: 22px; }
+      .garantias { grid-template-columns: 1fr 1fr; }
+      .faq summary { font-size: 16px; }
+      .rodape-grade { grid-template-columns: 1fr; }
+      .barra-fixa .btn { width: auto; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- CABEÇALHO -->
+  <header class="topo">
+    <div class="container">
+      <a href="#inicio" class="logo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg>
+        <span>Ensaios <span class="verde">Recorrentes</span></span>
+      </a>
+      <a href="#oferta" class="btn-contorno">Vagas abertas · Ver oferta</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- 1. HERO -->
+    <section class="hero" id="inicio">
+      <div class="container">
+        <span class="selo">Método para fotógrafos · 100% online</span>
+        <h1>Aprenda a atrair novos clientes em qualquer nicho da fotografia<span class="ponto">.</span></h1>
+        <div class="vitrine revelar">
+          <img src="imagens/capa-curso.webp" alt="Capa do curso Ensaios Recorrentes 2.0: aprenda a fechar ensaios recorrentes toda semana">
+        </div>
+        <p class="texto">Neste curso, você vai descobrir uma nova forma de atrair clientes e construir uma agenda movimentada de trabalhos fotográficos.</p>
+        <p class="texto-2">Você vai aprender como posicionar sua fotografia e criar uma estrutura capaz de atrair novos clientes todos os dias.</p>
+        <a class="btn largo" href="#oferta">Quero gerar pedidos de orçamento todo dia</a>
+        <ul class="checks">
+          <li>Acesso imediato</li>
+          <li>Treinamento 100% online</li>
+          <li>Acesso vitalício</li>
+          <li>Garantia de 7 dias</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 2. VÍDEO -->
+    <section class="alt" id="video">
+      <div class="container estreito">
+        <div class="topo-secao revelar">
+          <span class="eyebrow">Aula 01</span>
+          <h2 class="titulo">Assista ao vídeo.</h2>
+        </div>
+        <div class="player revelar">
+          <!-- Para colocar o vídeo, substitua o conteúdo deste bloco por um <iframe> do YouTube/Vimeo/Panda -->
+          <span class="aula">AULA 01</span>
+          <div class="play"></div>
+          <p>Assista ao vídeo.</p>
+        </div>
+        <div class="nichos-arte revelar">
+          <img src="imagens/nichos.webp" alt="Funciona para qualquer nicho da fotografia: casamento, ensaios, formatura, eventos, aniversários, 15 anos, gestantes e estúdios" loading="lazy">
+        </div>
+      </div>
+      <div class="letreiro" aria-hidden="true">
+        <div class="letreiro-faixa">
+          <span>GESTANTE<i>•</i>INFANTIL<i>•</i>FAMÍLIA<i>•</i>FORMATURA<i>•</i>CASAMENTO<i>•</i>EVENTOS<i>•</i>RETRATOS<i>•</i>ESPORTE<i>•</i>ANIVERSÁRIOS<i>•</i></span>
+          <span>GESTANTE<i>•</i>INFANTIL<i>•</i>FAMÍLIA<i>•</i>FORMATURA<i>•</i>CASAMENTO<i>•</i>EVENTOS<i>•</i>RETRATOS<i>•</i>ESPORTE<i>•</i>ANIVERSÁRIOS<i>•</i></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. O MÉTODO -->
+    <section id="metodo">
+      <div class="container">
+        <div class="metodo-grade">
+          <div class="revelar">
+            <span class="eyebrow">O método</span>
+            <h2 class="titulo">Todo o processo é organizado em etapas estratégicas</h2>
+            <p class="lead">Do primeiro contato ao pagamento antecipado: interesse, conversa, decisão, reserva e pagamento.</p>
+          </div>
+          <div class="ciclo revelar">
+            <img src="imagens/ciclo-metodo.webp" alt="Ciclo do método: interesse, conversa, decisão, reserva e pagamento" loading="lazy">
+          </div>
+        </div>
+        <div class="etapas">
+          <div class="card revelar"><div class="num">01</div><h3>Atração</h3><p>Como colocar seu trabalho na frente das pessoas certas.</p></div>
+          <div class="card revelar"><div class="num">02</div><h3>Interesse</h3><p>Como fazer a pessoa desejar o seu trabalho de fotografia.</p></div>
+          <div class="card revelar"><div class="num">03</div><h3>Conversão</h3><p>Como receber pedidos de orçamentos e pagamentos antecipados.</p></div>
+          <div class="card revelar"><div class="num">04</div><h3>Recorrência</h3><p>Como criar novas oportunidades de ensaios todos os meses.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. QUEBRA DE PADRÃO -->
+    <section class="alt">
+      <div class="container revelar">
+        <span class="eyebrow">Mudança de postura</span>
+        <h2 class="titulo">Pare de esperar o próximo cliente aparecer.</h2>
+        <p class="lead">Existe uma grande diferença entre simplesmente divulgar seu trabalho e criar oportunidades para que novas pessoas conheçam sua fotografia.</p>
+        <p class="destaque">O objetivo é fazer você sair de uma posição passiva e começar a construir um processo mais previsível de aquisição de clientes.</p>
+        <div class="cta"><a class="btn" href="#oferta">Quero gerar pedidos de orçamento todo dia</a></div>
+      </div>
+    </section>
+
+    <!-- 5. PROVA REAL -->
+    <section id="resultados">
+      <div class="container">
+        <div class="topo-secao revelar">
+          <span class="eyebrow">Prova real</span>
+          <h2 class="titulo">Se você está duvidando, veja alguns dos resultados que comecei a alcançar</h2>
+          <p class="lead">Esses são alguns dos prints que mostram cada etapa acontecendo na minha própria fotografia.</p>
+        </div>
+        <div class="prints">
+          <div class="card print revelar">
+            <span class="etapa">01 / ATRAÇÃO</span>
+            <p>Pessoas certas começam a chegar até sua fotografia.</p>
+            <div class="imagem"><img src="imagens/print-01-atracao.webp" alt="Print de WhatsApp: cliente chegou por indicação de uma amiga" loading="lazy"></div>
+          </div>
+          <div class="card print revelar">
+            <span class="etapa">02 / INTERESSE</span>
+            <p>O interesse pelo seu trabalho começa a aparecer.</p>
+            <div class="imagem"><img src="imagens/print-02-interesse.webp" alt="Print de WhatsApp: cliente interessado após ver o Instagram" loading="lazy"></div>
+          </div>
+          <div class="card print revelar">
+            <span class="etapa">03 / CONVERSÃO</span>
+            <p>Interessados começam a se transformar em clientes.</p>
+            <div class="imagem"><img src="imagens/print-03-conversao.webp" alt="Print de WhatsApp: reserva confirmada e comprovante Pix" loading="lazy"></div>
+          </div>
+          <div class="card print revelar">
+            <span class="etapa">04 / RECORRÊNCIA</span>
+            <p>Novas oportunidades continuam surgindo ao longo do tempo.</p>
+            <div class="imagem"><img src="imagens/print-04-recorrencia.jpg" alt="Print de agendamento confirmado e notificação de pagamento" loading="lazy"></div>
+          </div>
+        </div>
+        <p class="fecho revelar">Conquiste novos ensaios e trabalhos fotográficos em qualquer nicho da fotografia.</p>
+        <div class="cta"><a class="btn" href="#oferta">Quero receber orçamentos todo dia</a></div>
+      </div>
+    </section>
+
+    <!-- 6. O QUE VOCÊ VAI CONSTRUIR -->
+    <section class="alt construir">
+      <div class="container duas-colunas">
+        <div class="revelar">
+          <span class="eyebrow">O que você vai construir</span>
+          <h2 class="titulo">Como criar uma agenda cheia de ensaios fotográficos</h2>
+          <h2 class="titulo">Como receber mais pedidos de orçamento no seu WhatsApp</h2>
+          <p class="lead">Existe um processo por trás dos fotógrafos que mantêm uma agenda movimentada. Neste treinamento, você vai aprender como aplicá-lo no seu negócio.</p>
+          <p class="destaque"><strong>Mais clientes, mais orçamentos e pagamento antecipado!</strong> O treinamento que vai transformar suas vendas na fotografia.</p>
+        </div>
+        <figure class="revelar">
+          <div class="imagem agenda-recorte"><img src="imagens/agenda.jpg" alt="Print da agenda com vários ensaios agendados no mês" loading="lazy"></div>
+          <figcaption>Print real da minha agenda — vários ensaios agendados todo mês</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- 7. NICHOS -->
+    <section id="nichos">
+      <div class="container revelar">
+        <span class="eyebrow">Sem limite de nicho</span>
+        <h2 class="titulo">Mais oportunidades para sua fotografia</h2>
+        <p class="lead">O que você vai aprender aqui não está limitado a um único nicho.</p>
+        <p class="lead">Independentemente do tipo de fotografia que você oferece, existe uma forma de apresentar seu trabalho para as pessoas certas, despertar interesse e transformar essa atenção em novas oportunidades.</p>
+        <p class="lead"><strong style="color: var(--texto)">É isso que você vai descobrir ao longo deste treinamento.</strong></p>
+        <div class="pilulas">
+          <span>Todos os nichos</span><span>Gestante</span><span>Infantil</span><span>Família</span><span>Formatura</span>
+          <span>Casamento</span><span>Eventos</span><span>Retratos</span><span>Esporte</span><span>Aniversários</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. MOMENTO DE CARREIRA -->
+    <section class="alt">
+      <div class="container">
+        <div class="topo-secao revelar">
+          <span class="eyebrow">Para todo momento de carreira</span>
+          <h2 class="titulo">Não importa onde você está hoje, começando do zero ou buscando crescer</h2>
+          <p class="lead">O curso foi pensado para diferentes momentos da carreira.</p>
+        </div>
+        <div class="cards-2">
+          <div class="card revelar">
+            <div class="icone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22V12"/><path d="M12 12C12 8 9 6 5 6c0 4 3 6 7 6z"/><path d="M12 12c0-4 3-7 7-7 0 4-3 7-7 7z"/></svg></div>
+            <h3>Começando agora</h3>
+            <p>Se você ainda está tentando conseguir seus primeiros clientes, pode começar pela construção da sua estrutura.</p>
+          </div>
+          <div class="card revelar">
+            <div class="icone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg></div>
+            <h3>Já fotografa</h3>
+            <p>Se já fotografa e possui clientes, pode utilizar o processo para ampliar sua captação e criar novas oportunidades.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. PROVA DE PAGAMENTO -->
+    <section>
+      <div class="container">
+        <div class="topo-secao revelar">
+          <span class="eyebrow">Prova de recorrência</span>
+          <h2 class="titulo">Feche mais ensaios e receba pagamentos antecipados</h2>
+          <p class="lead">Veja abaixo alguns Pix de agendamentos confirmados através do WhatsApp.</p>
+          <p class="lead">Esse é um print da minha agenda depois que comecei a aplicar essa estrutura no meu negócio de fotografia.</p>
+        </div>
+        <div class="prints-2">
+          <div class="imagem revelar"><img src="imagens/print-03-conversao.webp" alt="Conversa no WhatsApp com comprovante Pix" loading="lazy"></div>
+          <div class="imagem revelar"><img src="imagens/print-04-recorrencia.jpg" alt="Agendamento confirmado com notificação de Pix" loading="lazy"></div>
+        </div>
+        <div class="cta"><a class="btn" href="#oferta">Quero gerar pedidos de orçamento todo dia</a></div>
+      </div>
+    </section>
+
+    <!-- 10. POR QUE FUNCIONA -->
+    <section class="alt">
+      <div class="container">
+        <div class="topo-secao revelar">
+          <span class="eyebrow">Por que funciona</span>
+          <h2 class="titulo">Um método pensado por fotógrafo, para fotógrafo</h2>
+        </div>
+        <div class="cards-3">
+          <div class="card revelar"><div class="num">01</div><h3>Não depende de aparecer todos os dias</h3><p>O método não depende de você precisar produzir conteúdo todos os dias ou passar horas tentando chamar atenção nas redes sociais.</p></div>
+          <div class="card revelar"><div class="num">02</div><h3>Não exige conhecimento de marketing</h3><p>O conteúdo foi pensado para fotógrafos. Você não precisa chegar sabendo marketing ou estratégias de vendas — o processo é apresentado de forma prática, para entender o que fazer e por quê.</p></div>
+          <div class="card revelar"><div class="num">03</div><h3>Funciona em qualquer nicho da fotografia</h3><p>Ensaios femininos, gestantes, casais, família, infantil, aniversários, formaturas, eventos, retratos profissionais e outros nichos.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 11. SOBRE O AUTOR -->
+    <section class="autor">
+      <div class="container autor-grade">
+        <div class="imagem revelar"><img src="imagens/vinicius-sodre.jpg" alt="Vinícius Sodré, fotógrafo e professor de fotografia" loading="lazy"></div>
+        <div class="revelar">
+          <span class="eyebrow">Quem vai te ensinar</span>
+          <h2>Vinícius Sodré</h2>
+          <p class="cargo">Fotógrafo · Professor de fotografia</p>
+          <p class="bio">Criei o Ensaios Recorrentes a partir do processo que uso no meu próprio negócio de fotografia para atrair clientes, fechar ensaios com pagamento antecipado e manter a agenda movimentada. Hoje ensino esse método para outros fotógrafos.</p>
+          <p class="destaque">“O objetivo é fazer você sair de uma posição passiva e começar a construir um processo mais previsível de aquisição de clientes.”</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 12. BÔNUS -->
+    <section class="alt" id="bonus">
+      <div class="container">
+        <div class="topo-secao revelar">
+          <span class="eyebrow">Bônus exclusivos</span>
+          <h2 class="titulo">Você também recebe</h2>
+        </div>
+        <div class="card bonus revelar">
+          <div class="pack-recorte"><img src="imagens/bonus-pack.webp" alt="Pack de criativos prontos: modelos de anúncio para aniversário, formatura e eventos" loading="lazy"></div>
+          <div>
+            <span class="eyebrow">Bônus 01</span>
+            <h3>Pack de Criativos Prontos</h3>
+            <p class="lead">Modelos para você usar e anunciar imediatamente — aniversário, formatura, eventos e mais.</p>
+            <ul class="checks">
+              <li>Criativos profissionais e editáveis</li>
+              <li>Prontos para usar nos anúncios</li>
+              <li>Economize tempo e anuncie mais rápido</li>
+              <li>Aumente suas chances de receber mais pedidos de orçamento</li>
+            </ul>
+          </div>
+        </div>
+        <div class="card bonus revelar">
+          <div class="ebook"><img src="imagens/ebook-bonus.jpg" alt="Capa do ebook Atendimento Magnético para Fotógrafos" loading="lazy"></div>
+          <div>
+            <span class="eyebrow">Bônus 02</span>
+            <h3>Atendimento Magnético para Fotógrafos</h3>
+            <p class="lead">O guia prático que mostra como transformar pedidos de orçamento em clientes. Sem scripts, sem técnicas complicadas — apenas estratégias reais de conversão usadas no atendimento.</p>
+          </div>
+        </div>
+        <div class="cta revelar"><a class="btn" href="#oferta">Quero receber orçamentos todo dia</a></div>
+      </div>
+    </section>
+
+    <!-- 13. FAQ -->
+    <section class="faq" id="duvidas">
+      <div class="container estreito">
+        <div class="topo-secao revelar">
+          <span class="eyebrow">Dúvidas</span>
+          <h2 class="titulo">Perguntas frequentes</h2>
+        </div>
+        <div class="revelar">
+          <details><summary>O que é o Ensaios Recorrentes?</summary><p>O Ensaios Recorrentes é um método criado para ajudar fotógrafos a conseguir mais oportunidades de ensaios, posicionar melhor o próprio trabalho e construir uma agenda mais movimentada.</p></details>
+          <details><summary>O curso é para quem está começando na fotografia?</summary><p>Sim. O método pode ser aplicado tanto por quem está começando quanto por fotógrafos que já trabalham profissionalmente, mas querem aumentar a frequência de novos clientes e diminuir os períodos de agenda vazia.</p></details>
+          <details><summary>O curso inclui material de apoio?</summary><p>Sim. Você terá acesso a materiais complementares e bônus para facilitar a criação das suas campanhas e anúncios.</p></details>
+          <details><summary>Como funcionam as aulas?</summary><p>As aulas são 100% online e gravadas. Você pode assistir no seu ritmo, quantas vezes quiser.</p></details>
+          <details><summary>Funciona para qualquer nicho da fotografia?</summary><p>O processo pode ser adaptado para diferentes serviços, como: ensaios femininos, gestantes, casais, família, infantil, aniversários, formaturas, eventos, retratos profissionais e outros nichos.</p></details>
+          <details><summary>O acesso é vitalício?</summary><p>Sim. Você terá acesso vitalício ao curso para assistir quando quiser e revisar as aulas sempre que precisar.</p></details>
+          <details><summary>Preciso aparecer todos os dias nas redes sociais?</summary><p>Não. O método não depende de você precisar produzir conteúdo todos os dias ou passar horas tentando chamar atenção nas redes sociais.</p></details>
+          <details><summary>Preciso entender de marketing para fazer o curso?</summary><p>Não. O conteúdo foi pensado para fotógrafos. Você não precisa chegar sabendo marketing ou estratégias de vendas. O processo é apresentado de maneira prática para que você consiga entender o que fazer e por que fazer.</p></details>
+        </div>
+      </div>
+    </section>
+
+    <!-- 14/15. OFERTA FINAL — único lugar com preço; todos os botões da página ancoram aqui -->
+    <section class="oferta alt" id="oferta">
+      <div class="container">
+        <div class="chamada revelar">
+          <span class="eyebrow">Oferta</span>
+          <h2 class="titulo">Pare de esperar. Comece a atrair clientes hoje.</h2>
+          <p class="lead">O treinamento que vai transformar suas vendas na fotografia. Comece hoje a construir uma agenda recorrente de ensaios em qualquer nicho.</p>
+        </div>
+        <div class="oferta-card revelar">
+          <span class="eyebrow">Acesso imediato · 100% online</span>
+          <h3>Mais clientes, mais orçamentos e pagamento antecipado</h3>
+          <p class="lead">Ensaios Recorrentes 2.0 + bônus Pack de Criativos Prontos + bônus Atendimento Magnético para Fotógrafos.</p>
+          <div class="preco">
+            <div class="valor">R$ 297,00 <small>à vista</small></div>
+            <p class="parcelas">ou <b>12x de R$ 30,72</b></p>
+          </div>
+          <a class="btn" href="https://pay.hotmart.com/R96548296B?off=9st5vdgk">Quero gerar pedidos de orçamento todo dia</a>
+          <p class="seguro">🔒 Você será levado ao checkout seguro da plataforma Hotmart.</p>
+          <div class="garantias">
+            <span>🔒 Compra 100% segura</span>
+            <span>⚡ Acesso imediato</span>
+            <span>♾️ Acesso vitalício</span>
+            <span>🛡️ Garantia de 7 dias</span>
+          </div>
+          <dl class="incluso">
+            <div><dt>O que está incluído</dt><dd>Treinamento Ensaios Recorrentes 2.0 completo: atração, interesse, conversão e recorrência.</dd></div>
+            <div><dt>Bônus</dt><dd>Pack de Criativos Prontos e o guia Atendimento Magnético para Fotógrafos.</dd></div>
+            <div><dt>Aulas</dt><dd>100% online e gravadas. Assista no seu ritmo, quantas vezes quiser.</dd></div>
+            <div><dt>Acesso</dt><dd>Vitalício, liberado logo após a confirmação do pagamento.</dd></div>
+            <div><dt>Garantia</dt><dd>7 dias de garantia.</dd></div>
+          </dl>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- RODAPÉ -->
+  <footer>
+    <div class="container">
+      <div class="rodape-grade">
+        <div>
+          <a href="#inicio" class="logo">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg>
+            <span>Ensaios <span class="verde">Recorrentes</span></span>
+          </a>
+          <p class="desc">Método para fotógrafos atraírem novos clientes e construírem uma agenda recorrente de ensaios, em qualquer nicho da fotografia.</p>
+        </div>
+        <div>
+          <h4>Curso</h4>
+          <ul>
+            <li><a href="#metodo">Método</a></li>
+            <li><a href="#resultados">Resultados</a></li>
+            <li><a href="#nichos">Nichos</a></li>
+            <li><a href="#duvidas">Dúvidas frequentes</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contato</h4>
+          <ul>
+            <li><a href="mailto:marcosviniciussodree@gmail.com">Fale com o suporte</a></li>
+            <li><a href="https://viniciussodrer.com.br" target="_blank" rel="noopener">viniciussodrer.com.br</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="copy">
+        <span>© 2026 Ensaios Recorrentes — Vinícius Sodré. Todos os direitos reservados.</span>
+        <span>PROCESSADO POR HOTMART</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- BARRA FIXA INFERIOR (sem preço; leva até a oferta) -->
+  <div class="barra-fixa" id="barraFixa">
+    <div class="container">
+      <div class="info"><b>Ensaios Recorrentes 2.0</b><span>Acesso imediato · 100% online</span></div>
+      <a class="btn" href="#oferta">Ver oferta</a>
+    </div>
+  </div>
+
+  <script>
+    // Animação de entrada ao rolar
+    (function () {
+      var itens = document.querySelectorAll('.revelar');
+      if (!('IntersectionObserver' in window)) {
+        itens.forEach(function (el) { el.classList.add('visivel'); });
+        return;
+      }
+      var obs = new IntersectionObserver(function (entradas) {
+        entradas.forEach(function (e) {
+          if (e.isIntersecting) { e.target.classList.add('visivel'); obs.unobserve(e.target); }
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+      itens.forEach(function (el) { obs.observe(el); });
+    })();
+
+    // Barra fixa: aparece depois do topo e some quando a oferta está na tela
+    (function () {
+      var barra = document.getElementById('barraFixa');
+      var oferta = document.getElementById('oferta');
+      function atualizar() {
+        var passouTopo = window.scrollY > window.innerHeight * 0.8;
+        var r = oferta.getBoundingClientRect();
+        var naOferta = r.top < window.innerHeight && r.bottom > 0;
+        barra.classList.toggle('ativa', passouTopo && !naOferta);
+      }
+      window.addEventListener('scroll', atualizar, { passive: true });
+      window.addEventListener('resize', atualizar);
+      atualizar();
+    })();
+  </script>
+</body>
+</html>
