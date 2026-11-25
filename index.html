@@ -116,7 +116,11 @@
         var(--bg);
       border-bottom: 1px solid var(--line);
     }
-    .hero-grid { display: grid; gap: 24px; text-align: center; }
+    .hero-grid { display: grid; gap: 24px; text-align: center; max-width: 900px; }
+    .hero h1 { max-width: 820px; margin-left: auto !important; margin-right: auto !important; margin-bottom: 0 !important; }
+    .hero .player { width: 100%; }
+    .hero .lead { max-width: 680px; margin: 0 auto; }
+    .letreiro-sec .letreiro { margin-top: 0; }
     .eyebrow { display: inline-flex; align-items: center; gap: .45em; font-size: .78rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; }
     .hero h1 { font-size: clamp(1.75rem, 7.4vw, 3.3rem); line-height: 1.15; font-weight: 500; margin: 0 0 16px; letter-spacing: -0.02em; }
     .hero h1 b { font-weight: 800; background: linear-gradient(90deg, #fff, #c8f7d8); -webkit-background-clip: text; background-clip: text; color: transparent; }
@@ -361,15 +365,6 @@
     }
     @media (min-width: 960px) {
       .hero { padding: 108px 0 88px; }
-      .hero-grid {
-        grid-template-columns: 1.15fr .85fr; grid-template-areas: "text cover" "buy cover";
-        text-align: left; column-gap: 56px; row-gap: 28px; align-items: center;
-      }
-      .hero-text { grid-area: text; align-self: end; }
-      .hero-cover { grid-area: cover; width: 100%; max-width: 460px; }
-      .hero-buy { grid-area: buy; align-items: flex-start; align-self: start; }
-      .hero-buy .tags { justify-content: flex-start; margin-left: 0; }
-      .hero-buy .buy-note { text-align: left; }
       .step-grid--4 { grid-template-columns: repeat(4, 1fr); }
       .prints { grid-template-columns: repeat(4, 1fr); max-width: 1080px; gap: 18px; }
     }
@@ -405,15 +400,16 @@
 <!-- ============ 1. HERO ============ -->
 <section class="hero">
   <div class="wrap hero-grid">
-    <div class="hero-text reveal">
-      <p class="eyebrow"><svg><use href="#i-camera"/></svg> Método para fotógrafos · Treinamento 100% online</p>
-      <h1>Aprenda a <b class="y">atrair novos clientes</b> em <b>qualquer nicho</b> da fotografia.</h1>
-      <p class="lead">Neste curso, você vai descobrir uma nova forma de <b>atrair clientes</b> e construir uma <b>agenda movimentada</b> de trabalhos fotográficos.</p>
+    <h1 class="reveal">Aprenda a <b class="y">atrair novos clientes</b> em <b>qualquer nicho</b> da fotografia.</h1>
+
+    <div class="player reveal">
+      <!-- Para colocar o vídeo, substitua o conteúdo deste bloco por um <iframe> do YouTube/Vimeo/Panda -->
+      <span class="b-tag">Aula 01</span>
+      <div class="play"></div>
+      <p>Assista ao vídeo.</p>
     </div>
 
-    <div class="hero-cover reveal">
-      <img src="imagens/capa-curso.webp" alt="Capa do curso Ensaios Recorrentes 2.0: aprenda a fechar ensaios recorrentes toda semana" width="1254" height="1254" fetchpriority="high" decoding="async">
-    </div>
+    <p class="lead reveal">Neste curso, você vai descobrir uma nova forma de <b>atrair clientes</b> e construir uma <b>agenda movimentada</b> de trabalhos fotográficos.</p>
 
     <div class="hero-buy reveal">
       <ul class="tags" aria-label="Destaques">
@@ -428,59 +424,11 @@
   </div>
 </section>
 
-<!-- ============ 2. VÍDEO ============ -->
+<!-- ============ 2. FUNCIONA PARA QUALQUER NICHO ============ -->
 <section class="section video">
   <div class="wrap">
-    <h2 class="title reveal">Assista à <b class="y">aula 01.</b></h2>
-    <div class="player reveal">
-      <!-- Para colocar o vídeo, substitua o conteúdo deste bloco por um <iframe> do YouTube/Vimeo/Panda -->
-      <span class="b-tag">Aula 01</span>
-      <div class="play"></div>
-      <p>Assista ao vídeo.</p>
-    </div>
-    <div class="nichos-arte reveal">
+    <div class="nichos-arte reveal" style="margin-top:0">
       <img src="imagens/nichos.webp" alt="Funciona para qualquer nicho da fotografia: casamento, ensaios, formatura, eventos, aniversários, 15 anos, gestantes e estúdios" width="864" height="1821" loading="lazy" decoding="async">
-    </div>
-  </div>
-  <div class="letreiro" aria-hidden="true">
-    <div class="letreiro-faixa">
-      <span>GESTANTE<i>•</i>INFANTIL<i>•</i>FAMÍLIA<i>•</i>FORMATURA<i>•</i>CASAMENTO<i>•</i>EVENTOS<i>•</i>RETRATOS<i>•</i>ESPORTE<i>•</i>ANIVERSÁRIOS<i>•</i></span>
-      <span>GESTANTE<i>•</i>INFANTIL<i>•</i>FAMÍLIA<i>•</i>FORMATURA<i>•</i>CASAMENTO<i>•</i>EVENTOS<i>•</i>RETRATOS<i>•</i>ESPORTE<i>•</i>ANIVERSÁRIOS<i>•</i></span>
-    </div>
-  </div>
-</section>
-
-<!-- ============ 3. PARE DE ESPERAR ============ -->
-<section class="section myth">
-  <div class="wrap narrow">
-    <h2 class="title reveal">Pare de esperar o próximo cliente <b class="y">aparecer.</b></h2>
-    <p class="myth-answer reveal">Divulgar não é suficiente.</p>
-    <div class="myth-box reveal">
-      <p>Existe uma grande diferença entre <b>simplesmente divulgar seu trabalho</b> e <mark>criar oportunidades</mark> para que novas pessoas conheçam sua fotografia.</p>
-      <p>O objetivo é fazer você sair de uma <b>posição passiva</b> e começar a construir um <mark>processo mais previsível de aquisição de clientes</mark>.</p>
-    </div>
-    <div class="check-line reveal" style="margin:36px auto 0">
-      <span class="ico"><svg><use href="#i-check"/></svg></span>
-      <p class="statement">Existe um <b>processo por trás dos fotógrafos</b> que mantêm uma agenda movimentada — e você vai aprender a aplicá-lo no seu negócio.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ============ 4. O MÉTODO ============ -->
-<section class="section" id="metodo">
-  <div class="wrap">
-    <h2 class="title reveal">Todo o processo é organizado em <b class="y">etapas estratégicas</b></h2>
-    <div class="ciclo reveal">
-      <img src="imagens/ciclo-metodo.webp" alt="Ciclo do método: interesse, conversa, decisão, reserva e pagamento" width="1254" height="1254" loading="lazy" decoding="async">
-    </div>
-    <ol class="step-grid step-grid--4">
-      <li class="step reveal"><span class="step__num">01</span><h3>Atração</h3><p>Como colocar seu trabalho na frente das pessoas certas.</p></li>
-      <li class="step reveal"><span class="step__num">02</span><h3>Interesse</h3><p>Como fazer a pessoa desejar o seu trabalho de fotografia.</p></li>
-      <li class="step reveal"><span class="step__num">03</span><h3>Conversão</h3><p>Como receber pedidos de orçamentos e pagamentos antecipados.</p></li>
-      <li class="step reveal"><span class="step__num">04</span><h3>Recorrência</h3><p>Como criar novas oportunidades de ensaios todos os meses.</p></li>
-    </ol>
-    <div class="buy reveal">
-      <a href="#preco" class="btn js-scroll">Quero conseguir mais clientes</a>
     </div>
   </div>
 </section>
@@ -511,6 +459,45 @@
     <p class="earn-note reveal">Conquiste <b class="y">novos ensaios</b> e trabalhos fotográficos em <b>qualquer nicho</b> da fotografia.</p>
     <div class="buy reveal">
       <a href="#preco" class="btn btn--big js-scroll">Quero conseguir mais ensaios fotográficos</a>
+    </div>
+  </div>
+</section>
+
+<section class="letreiro-sec">
+  <div class="letreiro" aria-hidden="true">
+    <div class="letreiro-faixa">
+      <span>GESTANTE<i>•</i>INFANTIL<i>•</i>FAMÍLIA<i>•</i>FORMATURA<i>•</i>CASAMENTO<i>•</i>EVENTOS<i>•</i>RETRATOS<i>•</i>ESPORTE<i>•</i>ANIVERSÁRIOS<i>•</i></span>
+      <span>GESTANTE<i>•</i>INFANTIL<i>•</i>FAMÍLIA<i>•</i>FORMATURA<i>•</i>CASAMENTO<i>•</i>EVENTOS<i>•</i>RETRATOS<i>•</i>ESPORTE<i>•</i>ANIVERSÁRIOS<i>•</i></span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 3. PARE DE ESPERAR ============ -->
+<section class="section myth">
+  <div class="wrap narrow">
+    <h2 class="title reveal">Pare de esperar o próximo cliente <b class="y">aparecer.</b></h2>
+    <div class="check-line reveal" style="margin:8px auto 0">
+      <span class="ico"><svg><use href="#i-check"/></svg></span>
+      <p class="statement">Existe um <b>processo por trás dos fotógrafos</b> que mantêm uma agenda movimentada — e você vai aprender a aplicá-lo no seu negócio.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 4. O MÉTODO ============ -->
+<section class="section" id="metodo">
+  <div class="wrap">
+    <h2 class="title reveal">Todo o processo é organizado em <b class="y">etapas estratégicas</b></h2>
+    <div class="ciclo reveal">
+      <img src="imagens/ciclo-metodo.webp" alt="Ciclo do método: interesse, conversa, decisão, reserva e pagamento" width="1254" height="1254" loading="lazy" decoding="async">
+    </div>
+    <ol class="step-grid step-grid--4">
+      <li class="step reveal"><span class="step__num">01</span><h3>Atração</h3><p>Como colocar seu trabalho na frente das pessoas certas.</p></li>
+      <li class="step reveal"><span class="step__num">02</span><h3>Interesse</h3><p>Como fazer a pessoa desejar o seu trabalho de fotografia.</p></li>
+      <li class="step reveal"><span class="step__num">03</span><h3>Conversão</h3><p>Como receber pedidos de orçamentos e pagamentos antecipados.</p></li>
+      <li class="step reveal"><span class="step__num">04</span><h3>Recorrência</h3><p>Como criar novas oportunidades de ensaios todos os meses.</p></li>
+    </ol>
+    <div class="buy reveal">
+      <a href="#preco" class="btn js-scroll">Quero conseguir mais clientes</a>
     </div>
   </div>
 </section>
@@ -573,6 +560,17 @@
         <p class="myth-card__head">Já fotografa</p>
         <p class="desc">Se já fotografa e possui clientes, pode utilizar o processo para <b>ampliar sua captação</b> e criar novas oportunidades.</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DIVULGAR NÃO É SUFICIENTE ============ -->
+<section class="section myth" style="background:var(--bg-2)">
+  <div class="wrap narrow">
+    <p class="myth-answer reveal">Divulgar não é suficiente.</p>
+    <div class="myth-box reveal" style="margin-bottom:0">
+      <p>Existe uma grande diferença entre <b>simplesmente divulgar seu trabalho</b> e <mark>criar oportunidades</mark> para que novas pessoas conheçam sua fotografia.</p>
+      <p>O objetivo é fazer você sair de uma <b>posição passiva</b> e começar a construir um <mark>processo mais previsível de aquisição de clientes</mark>.</p>
     </div>
   </div>
 </section>
